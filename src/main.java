@@ -1,8 +1,8 @@
 public class main {
 
     public static void main(String[] args) {
-        FibIterative fibit = new FibIterative(7);
-        FibRecursive fibcur = new FibRecursive(7);
+        FibIterative fibit = new FibIterative(2);
+        FibRecursive fibcur = new FibRecursive(2);
         fibcur.start();
         fibit.start();
         System.out.println("Recursive:");
