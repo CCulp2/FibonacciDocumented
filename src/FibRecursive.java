@@ -6,8 +6,8 @@ public class FibRecursive extends Fib {
 
     public void start() {
         long startTime = System.nanoTime();
-        fibNumber = FibRe(positionInSequence);
-        timeToComplete = System.nanoTime() - startTime;
+        dataPoint.setFibNum(FibRe(positionInSequence));
+        dataPoint.setTime(System.nanoTime() - startTime);
 
     }
 

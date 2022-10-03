@@ -1,22 +1,17 @@
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Map;
 
 public class FibCSV {
-    String filename;
-    FileOutputStream file;
-
-    public void WriteFibCSV(List<FibTestDataPoint> iter, List<FibTestDataPoint> recur) throws FileNotFoundException {
-        filename = createFileName();
-        file = new FileOutputStream(filename, true);
+    public static void WriteFibCSV(List<FibTestDataPoint> iter, List<FibTestDataPoint> recur) throws FileNotFoundException {
+        String filename = createFileName();
+        FileOutputStream file = new FileOutputStream(filename, true);
         PrintWriter pw = new PrintWriter(file);
         pw.println("Iterative, FibNum, Time, Recursive, FibNum, Time");
-        for (int i = 0; i == iter.size(); i++) {
+        for (int i = 0; i <= iter.size() - 1; i++) {
             FibTestDataPoint iterPoint = iter.get(i);
             FibTestDataPoint recurPoint = recur.get(i);
             pw.println(fibEntryBuilder(iterPoint, recurPoint));
@@ -25,8 +20,8 @@ public class FibCSV {
 
     }
 
-    private String createFileName() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyMMddHHmm");
+    private static String createFileName() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyMMddHHmm-ss");
         LocalDateTime now = LocalDateTime.now();
         String datetimeInString = dtf.format(now);
         StringBuilder nameOfFile = new StringBuilder();
@@ -35,7 +30,7 @@ public class FibCSV {
         return nameOfFile.toString();
     }
 
-    private String fibEntryBuilder(FibTestDataPoint iter, FibTestDataPoint recur) {
+    private static String fibEntryBuilder(FibTestDataPoint iter, FibTestDataPoint recur) {
         StringBuilder str = new StringBuilder("," + iter.getFibNumToString() + "," + iter.getTimeToString() + ",," +
                 recur.getFibNumToString() + "," + recur.getTimeToString());
         return str.toString();
