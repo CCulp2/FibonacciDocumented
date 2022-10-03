@@ -10,7 +10,7 @@ public class FibCSV {
         String filename = createFileName();
         FileOutputStream file = new FileOutputStream(filename, true);
         PrintWriter pw = new PrintWriter(file);
-        pw.println("Iterative, FibNum, Time, Recursive, FibNum, Time");
+        pw.println("Fib Number, Iterative Time, Recursive Time");
         for (int i = 0; i <= iter.size() - 1; i++) {
             FibTestDataPoint iterPoint = iter.get(i);
             FibTestDataPoint recurPoint = recur.get(i);
@@ -31,8 +31,7 @@ public class FibCSV {
     }
 
     private static String fibEntryBuilder(FibTestDataPoint iter, FibTestDataPoint recur) {
-        StringBuilder str = new StringBuilder("," + iter.getFibNumToString() + "," + iter.getTimeToString() + ",," +
-                recur.getFibNumToString() + "," + recur.getTimeToString());
+        StringBuilder str = new StringBuilder(iter.getFibNumToString() + "," + iter.getTimeToString() + "," + recur.getTimeToString());
         return str.toString();
 
     }
