@@ -20,9 +20,8 @@ public class FibIterative extends Fib {
                 previousFibNumber = temp;
             }
 
-            long endTime = System.nanoTime();
-
-            timeToComplete = endTime - startTime;
+            dataPoint.setTime(System.nanoTime() - startTime);
+            dataPoint.setFibNum(fibNumber);
         }
     }
 }
