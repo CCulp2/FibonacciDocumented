@@ -1,2 +1,28 @@
-package PACKAGE_NAME;public class FibIt {
+public class FibIterative extends Fib {
+
+    public FibIterative(int positionInSequence) {
+        super(positionInSequence);
+    }
+
+    public void start() {
+        long startTime = System.nanoTime();
+
+        if (positionInSequence <= 1) {
+            timeToComplete = System.nanoTime() - startTime;
+        } else {
+
+            fibNumber = 1;
+            int previousFibNumber = 1;
+
+            for (int i = 2; i < positionInSequence; i++) {
+                int temp = fibNumber;
+                fibNumber += previousFibNumber;
+                previousFibNumber = temp;
+            }
+
+            long endTime = System.nanoTime();
+
+            timeToComplete = endTime - startTime;
+        }
+    }
 }
