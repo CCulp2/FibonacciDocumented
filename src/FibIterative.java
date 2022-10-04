@@ -8,7 +8,8 @@ public class FibIterative extends Fib {
         long startTime = System.nanoTime();
 
         if (positionInSequence <= 1) {
-            timeToComplete = System.nanoTime() - startTime;
+            dataPoint.setTime(System.nanoTime() - startTime);
+            dataPoint.setFibNum(1);
         } else {
 
             fibNumber = 1;

@@ -9,7 +9,7 @@ public class main {
         List<FibTestDataPoint> recurList = new ArrayList<>();
 
 
-        for (int i = 2; i <= 25; i++) {
+        for (int i = 0; i <= 25; i++) {
             FibIterative iter = new FibIterative(i);
             iter.start();
             iterList.add(iter.getDataPoint());

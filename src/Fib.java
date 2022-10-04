@@ -1,5 +1,4 @@
 public class Fib {
-    protected long timeToComplete = 0;
     protected int positionInSequence;
     protected int fibNumber;
     FibTestDataPoint dataPoint;
